@@ -1,0 +1,216 @@
+.App {
+  /* text-align: center; */
+  display:block;
+  overflow-x:hidden;
+  /* flex-direction:column; */
+}
+/* General Styles */
+img{
+  width:50vw;
+  height:70vw;
+  position:relative;
+  left:25vw;
+}
+
+/* Header Styles */
+.logo{
+  width:10vw;
+  height:10vw;
+  background:#ffffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:50%;
+
+}
+header{
+width:110vw;
+height:20vw;
+background-image : url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60");
+/* background-repeat: no-repeat; */
+background-blend-mode:darken;
+background-color: rgb(0, 0, 0,.5);
+background-size:cover;
+display:flex;
+justify-content: space-between;
+padding:2rem;
+}
+nav{
+  margin-right:15vw;
+}
+
+
+.nav-item{
+  list-style-type:none;
+  display:inline;
+  padding:.5rem 1rem;
+  color:#ffffff;
+  cursor:default;
+}
+.nav-item:hover{
+  background-color:#432518;
+  border-radius:50px;
+}
+
+.allPages{
+  display:flex;
+  flex-wrap:nowrap
+}
+.primary-pages{
+  display:flex;
+  flex-wrap:nowrap;
+
+}
+.secondary-pages{
+  display:flex;
+  flex-wrap:nowrap;
+  position:relative;
+  top: 40vw;
+}
+.page{
+  width:100vw;
+  height:auto; 
+}
+/*Add to order buttons*/
+.menu-btn{
+  padding:.3rem 1rem;
+  border-radius:50px;
+  border:none;
+}
+.menu-btn:hover{
+  background-color:#432518;
+  color:#ffffff;
+  transition:all .3s ease-in-out
+}
+/*homepage and starter menu*/
+.autumnSalad{
+  position:relative;
+  bottom:48vw;
+  left:-4.5vw;
+}
+.ravioli{
+  position:relative;
+  bottom:39vw;
+  left:-13vw;
+}
+.scallopsFromTheIsleOfMan{
+  position:relative;
+  bottom:30vw;
+  left:-22vw;
+}
+.roastVealSweetBread{
+position:relative;
+  bottom:21vw;
+  left:-30.5vw;
+}
+.doverSoleGrenobloise{
+  position:relative;
+  bottom:27vw;
+  left:-3.5vw;
+}
+.addCornishTurbot{
+  position:relative;
+  bottom:17.5vw;
+  left:-11.5vw;
+}
+.addRoastPigeon{
+  position:relative;
+  bottom:9vw;
+  left:-19.5vw;
+}
+.cumbrianBlueGrey{
+  position:relative;
+  bottom:0vw;
+  left:-27.5vw;
+}
+.pecanPralineParfait{
+  position:relative;
+  bottom:49.5vw;
+  left:-4vw;
+}
+.christmasPuddingSouffle{
+  position:relative;
+  bottom:41.5vw;
+  left:-12vw;
+}
+.clementineParfait{
+  position:relative;
+  bottom:34vw;
+  left:-20.5vw;
+}
+.caramelisedAppleTarteTatin{
+  position:relative;
+  bottom:24vw;
+  left:-28.5vw;
+}
+.selectionOfCheeses{
+  position:relative;
+  bottom:18.5vw;
+  left:-36.5vw;
+}
+.coffeeTeasInfusionsAndPetitsFours{
+  position:relative;
+  bottom:13vw;
+  left:-44.5vw;
+}
+/*Menu page */
+.menu-items{
+  position:relative;
+  bottom:3vw;
+  left:20vw;
+}
+.menu-item{
+  width:13vw;
+  height:13vw;
+  margin-left:2vw;
+  background-color: #ffffff;
+  border:1px solid #432518; 
+}
+.menu-item:hover{
+  transform:scale(1.2);
+  transition:transform .2s linear;
+}
+
+/*Footer*/
+footer{
+  display:flex;
+  justify-content:space-evenly;
+}
+.socials{
+  display:flex;
+  align-items: center;
+  gap:2vw;
+}
+
+
+.active{
+  background-color:#432518;
+  color:#ffffff;
+  border-radius:50px;
+  border:none;
+  animation-name: bounce-6;
+  animation-timing-function: ease;
+  animation-duration: 2s;
+        animation-iteration-count: infinite;
+}
+
+/*Response*/
+.danger{
+  background:red;
+  color:white;
+}
+
+.success{
+  background:green;
+  color:white;
+}
+
+@keyframes bounce-6 {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-100px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-7px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
