@@ -8,6 +8,7 @@ function Contact(props){
     const [email, setEmail] = useState("");
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
+    const [responseMessage, setResponseMessage] = useState("");
 
     const [formIsValid, setFormIsValid] = useState(false);
 
@@ -39,24 +40,17 @@ function Contact(props){
             if(subject.length >10){
                 if(email.includes("@")){
                     if(email.length > 6){
-                        if(message.length > 140){
+                        if(message.length > 100){
                             setFormIsValid(true);
-                        } else {
-                            console.log("Invalid message")
+                            sendData();
+                            setResponseMessage("Thank you! We will get back to you as soon as possible!")
                         }
-                    } else {
-                        console.log("Invalid email")
                     }
-                }else{
-                    console.log("Invalid email")
                 }
-            } else {
-                console.log("Invalid subject")
             }
-            
         } else {
-            console.log("Invalid name")
             setFormIsValid(false)
+            setResponseMessage("Name, email, subject or message invalid")
         }
         setEmail("");
         setName("");
@@ -67,23 +61,24 @@ function Contact(props){
     return (
         <div className="page">
             <Header goToMenu={props.contactToMenu} goToHomepage={props.contactToHomepage} goToOrders={props.contactToOrders} />
+            {formIsValid ? (<span className="success">{responseMessage}</span>) :(<span className="danger">{responseMessage}</span>)}
             <form>
-                {formIsValid ? (<h1 className="success">Thank you! We will get back to you as soon as possible!</h1>) :(<h1 className="danger">Name, email, subject or message invalid</h1>)}
+                
                 <input type="text" value={name} onChange={changeName} placeholder='Your name' /><br/>
                 <input type="email" value={email} onChange={changeEmail} placeholder='Your email' /><br/>
                 <input type="text" value={subject} onChange={changeSubject} placeholder='Subject' /><br/>
                 <textarea value={message} onChange={changeMessage} placeholder="Send us a message"></textarea><br/>
-                <button type="submit" onClick={submitMessage}>Send</button>
+                <button type="submit"  className="contact-us-send-btn" onClick={submitMessage}>Send</button>
             </form>
-            <div className="Address">
-                <pre>
+         
+                <p className='address'>
                     25 Crazy Street,<br/>
                     Crazy Town,<br/>
                     Crazy Council,<br/>
                     CA1 3DG.<br/><br/>
                     +44 123456789
-                </pre>
-            </div>
+                </p>
+           
             <Footer />
         </div>
     )
