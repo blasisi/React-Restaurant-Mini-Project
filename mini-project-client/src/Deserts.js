@@ -15,11 +15,12 @@ function Deserts(props){
             <button type="button" className="caramelisedAppleTarteTatin menu-btn" onClick={props.addCaramelisedAppleTarteTatin}>add to order</button>
             <button type="button" className="selectionOfCheeses menu-btn" onClick={props.addSelectionOfCheeses}>add to order</button>
             <button type="button" className="coffeeTeasInfusionsAndPetitsFours menu-btn" onClick={props.addCoffeeTeasInfusionsAndPetitsFours}>add to order</button>
-
+            <div className="menu-navigation" >
             <button type="button" onClick={props.goToStarters}>Starters</button>
             <button type="button" onClick={props.goToMains}>Mains</button>
             <button type="button" className="active">Deserts</button>
             <button type="button" onClick={props.goToWines}>Wines</button>
+            </div>
             <Footer />
         </div>
     )

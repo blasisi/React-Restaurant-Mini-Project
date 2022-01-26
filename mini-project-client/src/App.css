@@ -11,17 +11,24 @@ img{
   position:relative;
   left:25vw;
 }
+li{
+  list-style-type: none;
+  display:inline-block;
+}
+
 
 /* Header Styles */
 .logo{
   width:10vw;
   height:10vw;
+  min-height:60px;
+  min-width:60px;
   background:#ffffff;
   display:flex;
   justify-content:center;
   align-items:center;
   border-radius:50%;
-
+  font-size:1vw;
 }
 header{
 width:110vw;
@@ -76,6 +83,7 @@ nav{
   padding:.3rem 1rem;
   border-radius:50px;
   border:none;
+
 }
 .menu-btn:hover{
   background-color:#432518;
@@ -111,17 +119,17 @@ position:relative;
 .addCornishTurbot{
   position:relative;
   bottom:17.5vw;
-  left:-11.5vw;
+  left:-13.5vw;
 }
 .addRoastPigeon{
   position:relative;
   bottom:9vw;
-  left:-19.5vw;
+  left:-23.5vw;
 }
 .cumbrianBlueGrey{
   position:relative;
   bottom:0vw;
-  left:-27.5vw;
+  left:-33.5vw;
 }
 .pecanPralineParfait{
   position:relative;
@@ -162,6 +170,8 @@ position:relative;
 .menu-item{
   width:13vw;
   height:13vw;
+  min-width:70px;
+  min-height:70px;
   margin-left:2vw;
   background-color: #ffffff;
   border:1px solid #432518; 
@@ -170,11 +180,80 @@ position:relative;
   transform:scale(1.2);
   transition:transform .2s linear;
 }
+.menu-navigation{
+  margin-left:45vw;
+  position:relative;
+  bottom:10vw;
+}
+.menu-btn-nav{
+  border:none;
+  border-radius:50px;
+  padding:.3rem .5rem;
+  background-color: #ffffff;
+}
+/*Form*/
+form{
+  margin-top:5rem;
+  position:relative;
+  left:13vw;
+}
+label{
+  margin-top:4vw;
+}
+input{
+  width:40%;
+  height:3vw;
+  border:5px solid ;
+  background-image:linear-gradient(to right, #432518, #D5A88D);
+  color:#ffffff;
+  border-radius:50px;
+  padding:2px 1.5vw;
+  margin-top:.5vw;
+}
+textarea{
+  width:40%;
+  height:5vw;
+  border:5px solid ;
+  background-image:linear-gradient(to right, #432518, #D5A88D);
+  color:#ffffff;
+  border-radius:50px;
+  padding:2px 1.5vw;
+  margin-top:.5vw;
+}
+::placeholder{
+  color:#ffffff;
+}
+.contact-us-send-btn{
+  height:4vw;
+  min-height:50px;
+  min-width:70px;
+  width:8vw;
+  margin-top:4vw;
+  background:#D5A88D;
+  border:none;
+  position:relative;
+  left:40vw;
+}
+.contact-us-send-btn:hover{
+  background-color: #432518;
+  color:#ffffff;
+}
+
+/*Address*/
+.address{
+  font-weight:bold;
+  letter-spacing: .2rem;
+  position:relative;
+  bottom:20vw;
+  left:70vw;
+}
 
 /*Footer*/
 footer{
   display:flex;
   justify-content:space-evenly;
+  position:relative;
+  top:100px;
 }
 .socials{
   display:flex;
@@ -193,18 +272,113 @@ footer{
   animation-duration: 2s;
         animation-iteration-count: infinite;
 }
-
+/*Order*/
+.order{
+  width:10vw;
+  height:auto;
+  padding:1rem;
+  border:1px solid #432518;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-left:5vw;
+}
 /*Response*/
 .danger{
-  background:red;
-  color:white;
+  color:red;
+  margin-left:25vw;
+  
 }
 
 .success{
-  background:green;
-  color:white;
+  color:green;
+  margin-left:25vw;
+}
+@media screen and (max-width:1279px) {
+.ravioli{
+  left:-14.5vw
+}
+.autumnSalad{
+  left:-4.5vw;
+}
+.scallopsFromTheIsleOfMan{
+  left:-24.5vw;
+}
+.roastVealSweetBread{
+  left:-34.5vw;
+}
+img{
+  left:26vw;
 }
 
+
+
+  .menu-btn{
+  padding:.3vw 1vw;
+  font-size:1.5vw;
+}
+.menu-items{
+  display:flex;
+  flex-direction: column;
+  gap:2rem;
+  margin-left:22vw;
+}
+footer{
+  width:100vw;
+  flex-direction:column;
+  align-items: center;
+  margin-right:10vw;
+  text-align:center;
+}
+}
+@media screen and (max-width:800px){
+  form{
+  left:28vw;
+}
+  textarea{
+  height:10vw;
+  padding: 1rem 3vw;
+}
+input{
+  height:3.5vw;
+  padding: 1rem 3vw;
+}
+  .contact-us-send-btn{
+    left:18vw;
+  }
+  .address{
+    bottom:0;
+    margin:10vw 0;
+    left:38vw;
+  }
+}
+
+@media screen and (max-width:650px){
+  nav{
+    margin-right:30vw;
+  }
+  .nav-item{
+    display:block;
+    font-size:3vw;
+  }
+  .navigation-list{
+    position:relative;
+    bottom:6vw;
+  }
+}
+
+@media screen  and (max-width:500px){
+  .menu-navigation{
+  margin-left:30vw; 
+}
+.navigation-list{
+    bottom:12vw;
+  }
+  footer{
+    font-size:4vw;
+  }
+}
 @keyframes bounce-6 {
   0%   { transform: scale(1,1)      translateY(0); }
   10%  { transform: scale(1.1,.9)   translateY(0); }

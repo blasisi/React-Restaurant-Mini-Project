@@ -9,10 +9,14 @@ function OrderList(props) {
 
                 <ul>
                     {props.customerOrder !== undefined ? props.customerOrder.map((order) => {
-                        console.log()
+                     
                         return(
                         <li>
-                            {order}
+                            <div className="order">
+                               <span>{order.orderName}</span><br/>
+                               <span>£{order.price}</span><br/>
+                               <button type="button" className="btn">remove</button>
+                            </div>
                         </li>
 
                         )

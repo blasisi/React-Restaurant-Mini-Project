@@ -10,8 +10,13 @@ function Orders(props){
     const [customerPostcode, setCustomerPostcode] = useState("");
     const [customerTelephone, setCustomerTelephone] = useState("");
     const [specialRequests, setSpecialRequests] = useState("");
+    const [responseMessage, setResponseMessage] = useState("");
+    const [total, setTotal] = useState(0);
 
     const [submittedObject, setSubmittedObject] = useState({});
+
+    const [formIsValid, setFormIsValid] = useState(false);
+
 
     useEffect(() => {
   console.log(submittedObject)
@@ -30,7 +35,34 @@ function Orders(props){
 }, [submittedObject]);
 
 function submitObject(e){
-    e.preventDefault();
+    if(customerName.length > 5){
+        if(customerAddress.length >10){
+            if(customerEmail.includes("@")){
+                if(customerEmail.length > 6){
+                    if(specialRequests.length > 20){
+                        if(customerPostcode.length > 6){
+                            if(customerTelephone.length >= 11){
+                                setFormIsValid(true);
+                                setResponseMessage("Thank you! We will get back to you as soon as possible!")
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        setFormIsValid(false);
+        setResponseMessage("Name, email, address or postcode or telephone invalid");
+    }
+
+    setCustomerName("");
+    setCustomerEmail("");
+    setCustomerAddress("");
+    setCustomerPostcode("");
+    setCustomerTelephone("");
+    setSpecialRequests("");
+    
 
     setSubmittedObject({
         "name": customerName,
@@ -42,28 +74,47 @@ function submitObject(e){
         "productComments":specialRequests
     })
 }
+    function changeCustomerName(e){
+        setCustomerName(e.target.value)
+    }
+    function changeCustomerEmail(e){
+        setCustomerEmail(e.target.value)
+    }
+    function changeCustomerAddress(e){
+        setCustomerAddress(e.target.value)
+    }
+    function changeCustomerPostcode(e){
+        setCustomerPostcode(e.target.value)
+    }
+    function changeCustomerTelephone(e){
+        setCustomerTelephone(e.target.value)
+    }
+    function changeSpecialRequest(e){
+        setSpecialRequests(e.target.value)
+    }
 
     return (
         <div className="page">
             <Header goToMenu={props.ordersToMenu} goToContact={props.ordersToContact} goToHomepage={props.ordersToHomepage}/>
+            {formIsValid ? (<span className="success">{responseMessage}</span>) :(<span className="danger">{responseMessage}</span>)}
             <OrderList customerOrder={props.customerOrderList}/>
             <form>
                 <label htmlFor='customerName'>Name:</label><br/>
-                <input type="text" id="customerName" value={customerName} onChange={setCustomerName} required/><br/>
+                <input type="text" id="customerName" value={customerName} onChange={changeCustomerName} required/><br/>
                 <label htmlFor='customerEmail'>Email:</label><br/>
-                <input type="email" id="customerEmail" value={customerEmail} onChange={setCustomerEmail} required/><br/>
+                <input type="email" id="customerEmail" value={customerEmail} onChange={changeCustomerEmail} required/><br/>
                 <label htmlFor='customerAddress'>Address:</label><br/>
-                <input type="text"  id="customerAddress" value={customerAddress} onChange={setCustomerAddress} required/><br/>
+                <input type="text"  id="customerAddress" value={customerAddress} onChange={changeCustomerAddress} required/><br/>
                 <label htmlFor='customerPostcode'>Postcode:</label><br/>
-                <input type="text" id="customerPostcode" value={customerPostcode} onChange={setCustomerPostcode} required/><br/>
+                <input type="text" id="customerPostcode" value={customerPostcode} onChange={changeCustomerPostcode} required/><br/>
                 <label htmlFor='customerTelephone'>Telephone:</label><br/>
-                <input type="tel" id="customerTelephone" value={customerTelephone} onChange={setCustomerTelephone} required/><br/>
+                <input type="tel" id="customerTelephone" value={customerTelephone} onChange={changeCustomerTelephone} required/><br/>
                 <label htmlFor='specialRequests'>Special Request:</label><br/>
-                <textarea id="specialRequests" value={specialRequests} onChange={setSpecialRequests} ></textarea><br/>
-                <button type="submit" onClick={submitObject}>Order</button>
+                <textarea id="specialRequests" value={specialRequests} onChange={changeSpecialRequest} ></textarea><br/>
+                <button type="submit" className="contact-us-send-btn" onClick={submitObject}>Order</button>
             </form>
             <div>
-                Total:
+                <p>Total: £{}</p>
             </div>
             <Footer />
             <div>
