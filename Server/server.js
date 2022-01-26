@@ -2,23 +2,24 @@ const express = require("express");
 const app = express();
 const { Pool } = require('pg');
 const { check , validationResult } = require('express-validator');
-
-import password_hidden from "./hidden.env";
+require('dotenv').config() // This will require and configure the .env file
 
 app.use(express.json()); //This means the body will be automatically parsed from a string into a JSON object. 
 
+
 // npm i express-validator
+// npm install dotenv
 
 const pool = new Pool({
-    user: 'Erin',
+    user: process.env.USERNAME,
     host: 'localhost',
-    database: 'cyf_mini_1',
-    password: 'dust2dust',
+    database: process.env.PROJECT,
+    password: process.env.PASSWORD,
     port: 5432,
 });
 
 // USE COMMAND LINE NOT WSL !!!!!
-app.listen(6000, function () {
+app.listen(process.env.PORT, function () {
   console.log("Server is listening on port 6000. Ready to accept requests!");
 });
 
@@ -26,8 +27,8 @@ app.get("/", function (req, res) {
     console.log("Default get request run, joined table returned")
 
     pool.query(
-        `SELECT customer_tb.email, customer_tb.name, customer_tb.address, customer_tb.postcode, customer_tb.telephone,
-        order_tb.product_name, order_tb.product_amount, order_tb.product_comments, order_tb.order_date
+        `SELECT customer_tb.customer_email, customer_tb.first_name, customer_tb.last_name, customer_tb.delivery_address, customer_tb.delivery_postcode, customer_tb.customer_telephone,
+        order_tb.product_name, order_tb.product_comments, order_tb.order_date
         FROM customer_tb 
         INNER JOIN order_tb ON order_tb.foreign_key=customer_tb.foreign_key;`
         , (error, result) => {
