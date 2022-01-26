@@ -3,17 +3,15 @@ const app = express();
 const { Pool } = require('pg');
 const { check , validationResult } = require('express-validator');
 
-import password_hidden from "./hidden.env";
-
 app.use(express.json()); //This means the body will be automatically parsed from a string into a JSON object. 
 
 // npm i express-validator
 
 const pool = new Pool({
-    user: 'Erin',
+    user: '',
     host: 'localhost',
     database: 'cyf_mini_1',
-    password: 'dust2dust',
+    password: '',
     port: 5432,
 });
 
