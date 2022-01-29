@@ -3,6 +3,9 @@ import './App.css';
 import Header from './Header';
 import Footer from './Footer';
 import OrderList from './components/OrderList';
+
+
+
 function Orders(props){
     const [customerName, setCustomerName] = useState("");
     const [customerEmail, setCustomerEmail] = useState("");
@@ -21,12 +24,12 @@ function Orders(props){
     useEffect(() => {
   console.log(submittedObject)
     const requestOptions = {
-        method: 'POST',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submittedObject)
         
     };
-    fetch('http://localhost:6000/', requestOptions)
+    fetch('http://localhost:6000/orders', requestOptions)
     .then(response => {
       response.json()})
     .then(data => {
@@ -39,7 +42,7 @@ function submitObject(e){
         if(customerAddress.length >10){
             if(customerEmail.includes("@")){
                 if(customerEmail.length > 6){
-                    if(specialRequests.length > 20){
+                    if(specialRequests.length > 20){ // Maybe worth removing this as some people won't have anything to enter here
                         if(customerPostcode.length > 6){
                             if(customerTelephone.length >= 11){
                                 setFormIsValid(true);
@@ -63,16 +66,19 @@ function submitObject(e){
     setCustomerTelephone("");
     setSpecialRequests("");
     
+    // props.customerOrderList.join(",")
 
     setSubmittedObject({
-        "name": customerName,
-        "email": customerEmail,
-        "address": customerAddress,
-        "postcode": customerPostcode,
-        "telephone": customerTelephone,
-        "productName": props.customerOrderList.join(","),
-        "productComments":specialRequests
+        "first_name": customerName.split(" ")[0],
+        "last_name": customerName.split(" ")[1] || "",
+        "customer_email": customerEmail,
+        "delivery_address": customerAddress,
+        "delivery_postcode": customerPostcode,
+        "customer_telephone": customerTelephone,
+        "product_name": "Tester Product, Tester 2",
+        "product_comments":specialRequests
     })
+    console.log(submittedObject);
 }
     function changeCustomerName(e){
         setCustomerName(e.target.value)

@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
 const { Pool } = require('pg');
 const { check , validationResult } = require('express-validator');
 require('dotenv').config() // This will require and configure the .env file
 
 app.use(express.json()); //This means the body will be automatically parsed from a string into a JSON object. 
+app.use(cors())
 
 
 // npm i express-validator

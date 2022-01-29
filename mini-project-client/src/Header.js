@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import OrderBasket from './components/OrderBasket';
+
+
 function Header(props){
+    console.log(process.env.REACT_APP_FRUITS);
     return (
         <header>
             {/* <img class="header-image" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="background" /> */}
-            <div className="logo"><h1>BASE</h1></div>
+            <div className="logo"><h1>ui,jghd !</h1></div>
             
             <nav>
                 <ul className="navigation-list">
