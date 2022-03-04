@@ -9,7 +9,7 @@ app.use(express.json()); //This means the body will be automatically parsed from
 
 // npm i express-validator
 // npm install dotenv
-
+//testing ............
 const pool = new Pool({
     user: process.env.USERNAME,
     host: 'localhost',
